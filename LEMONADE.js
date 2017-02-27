@@ -35,18 +35,45 @@
         
     };
     
-    function _сonverter_of_a_thousand(NumberSolve){
-        NumberSolve = NumberSolve || 0;
+    /**
+     * Вычесление при конвертации
+     * Конвертирование в формате (kilo, mega, giga) 
+     * @param {number} NumberSolve, исходное число
+     * @param {string} Annexe, приставка обезательное (K, M, G )-(строка)
+     * @return {arrya} [1000.001, 1000, false/string]
+    */
+    function _сonverter_of_a_thousand(NumberSolve, Annexe){
+        NumberSolve = +NumberSolve || 0;
+        Annexe      =  Annexe      || "K";
         
-        var DecisionТo = NumberSolve 
+        var Display           = String(Annexe)[0].toUpperCase(),
+            DisplayStringUser = (Annexe.substring(2) == "") ? false : Annexe.substring(2);
         
-        return NumberSolve
-    }
+        var TheNumberOfSettled = NumberSolve,
+            AnnexeMass = {
+                "K":  1000,
+                "M":  1000000,
+                "G":  1000000000
+            };
+        
+        if( NumberSolve >= AnnexeMass[Display] ){
+            
+            TheNumberOfSettled = [
+                NumberSolve / AnnexeMass[Display],
+                Math.trunc((NumberSolve/AnnexeMass[Display]) * 10) / 10,
+                DisplayStringUser
+            ];
+            
+            return TheNumberOfSettled
+        }
+        
+        return [TheNumberOfSettled, Annexe]
+    };
     
     return {
         /**
          * Формат числа 
-         * Выводит отформатированное число с деление на 1000
+         * Выводит отформатированное число с деление на формат
          * @param {number} Number, число которое стоит отформатировать
          * @param {boolean} Types, тип выводимого числа (number = true, string = false)
          * @param {string} Display, текст после числа 
@@ -55,14 +82,10 @@
                     123, 
                     [123, "string"]
         */
-        "convert_ka_format": function(Number, Types, Display){
+        "convert_format": function(Number, Types, Display){
             
-            
-            
-            return _сonverter_of_a_thousand(Number)
+            return _сonverter_of_a_thousand(Number, Display)
         }
     }
     
 }());
-
-
