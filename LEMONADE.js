@@ -1,6 +1,6 @@
-console.log("LEMONADE.js");
-
 ;var LEMONADE = (function(){
+    
+    console.log("LEMONADE.js");
     
     "use strict";
     
@@ -12,9 +12,10 @@ console.log("LEMONADE.js");
     */
     function _validation_of(NumberVerification){
         
-        var NumberVerification = +NumberVerification;
+        NumberVerification = NumberVerification || false;
         
-        var NumberOfChecks = [
+        var NumberVerification = +NumberVerification,
+            NumberOfChecks = [
         
             (!isNaN(parseFloat( NumberVerification )) && isFinite( NumberVerification )) ? NumberVerification : "RESET", //проверка на число
             (typeof NumberVerification === "number") ? NumberVerification : 'RESET', //проверка на тип данных
@@ -34,6 +35,14 @@ console.log("LEMONADE.js");
         
     };
     
+    function _сonverter_of_a_thousand(NumberSolve){
+        NumberSolve = NumberSolve || 0;
+        
+        var DecisionТo = NumberSolve 
+        
+        return NumberSolve
+    }
+    
     return {
         /**
          * Формат числа 
@@ -50,7 +59,7 @@ console.log("LEMONADE.js");
             
             
             
-            return _validation_of(Number)
+            return _сonverter_of_a_thousand(Number)
         }
     }
     
