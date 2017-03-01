@@ -46,7 +46,7 @@ START LEMONADE.validation_of()
     
     myModel.validation_of = function (NumberVerification){
         
-        NumberVerification = NumberVerification || false;
+        var NumberVerification = +NumberVerification;
         
 
         var NumberOfChecks = [
@@ -60,7 +60,7 @@ START LEMONADE.validation_of()
         
         if(NumberOfChecks.indexOf("RESET") !== -1){
             console.error("False number Неверное значение");
-            return false;
+            return 0;
         }
         
         var EndNumberVerification = String(NumberVerification).split('.')[0];
