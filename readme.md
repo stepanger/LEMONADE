@@ -1,7 +1,5 @@
 # LIMONADEJS (beta)
 
-# LEMONADE.convert_format(Number, Types, Display)
-
 ```javascript
 LEMONADE.convert_format("1233", "Mass", "K-likes");
 return [1.233, 1.2, "likes"] // kilo (number/1000)
