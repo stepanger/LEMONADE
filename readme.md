@@ -18,7 +18,7 @@ LEMONADE.transliteration_text("Привет");
 ```javascript
 LEMONADE.validation_of("101"); return 101
 LEMONADE.validation_of(1000);  return 1000
-LEMONADE.validation_of("1e1"); return false
+LEMONADE.validation_of("1e1"); return 0 false
 ```
 
 Copyright (c) 2017 Gerasimov Stepan (Lemonade)
