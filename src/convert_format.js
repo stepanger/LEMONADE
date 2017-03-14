@@ -19,10 +19,7 @@ START LEMONADE.convert_format()
     
     myModel.convert_format = function(Number, Types, Display){
         
-        
-        var returnNumberFormat = LEMONADE.сonverter_of_a_thousand(Number, Display)
-        
-        return returnNumberFormat
+        return LEMONADE.сonverter_of_a_thousand(Number, Display);
     }
     
     return myModel;
