@@ -1,7 +1,7 @@
 {
   "name": "lemonade.js",
   "version": "0.0.1",
-  "description": "Преобразует число от **1** до **9999999999** в число с приставкой **kilo mega giga** с дополнительной настройкой вывода",
+  "description": "des",
   "main": "LEMONADE.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
