@@ -146,35 +146,38 @@ START LEMONADE.validation_of()
     
     "use strict";
     
+    var mass_NumberVerification = []    //массив с каждой подстрокой чисел
+      , finished_number                 //проверенное число
+      , bollean_of_a_number;            //boolean для проверки в {every}
+    
     /**
-     * Проверка на число
+     * Проверка на число (validation_of)
      * Валидация числа на придмет не валидных значений
-     * @param {number} NumberVerification, проверяемое число
+     * @param {number} string_of_a_number, проверяемое число
      * @return {number} 123
     */
     
-    myModel.validation_of = function (NumberVerification){
+    myModel.validation_of = function (string_of_a_number){
         
-        var NumberVerification = +NumberVerification;
+        string_of_a_number = string_of_a_number || "";
+        mass_NumberVerification = string_of_a_number.split("");
         
-
-        var NumberOfChecks = [
+        if(!mass_NumberVerification.length){
+            return 0 //false
+        };
         
-            (!isNaN(parseFloat( NumberVerification )) && isFinite( NumberVerification )) ? NumberVerification : "RESET", //проверка на число
-            (typeof NumberVerification === "number") ? NumberVerification : 'RESET', //проверка на тип данных
-            (NumberVerification < 143000000000)      ? NumberVerification : 'RESET', //превышает ли значение
-            (NumberVerification >= 0)                ? NumberVerification : 'RESET', //меньше ли нуля
+        bollean_of_a_number = mass_NumberVerification.every(function(number){
+            return number >= 0 
+        });
         
-        ];
+        if(!bollean_of_a_number){
+            return 0 //false
+        };
         
-        if(NumberOfChecks.indexOf("RESET") !== -1){
-            console.error("False number Неверное значение");
-            return 0;
-        }
+        finished_number = +(mass_NumberVerification.join(''));
+        finished_number = (finished_number <= 143000000000) ? finished_number : 0 
         
-        var EndNumberVerification = String(NumberVerification).split('.')[0];
-    
-        return +EndNumberVerification;
+        return finished_number;
         
     };
     
