@@ -1,6 +1,3 @@
-/*
-START LEMONADE.transliteration_text()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> transliteration_text");
     
@@ -87,7 +84,7 @@ START LEMONADE.transliteration_text()
         };
     
     /**
-     * транслитерация  
+     * Tранслитерация  
      * Выводит текст в английский транслит
      * @param {string} str, строка в Транслит
      * @return [string]
@@ -105,6 +102,3 @@ START LEMONADE.transliteration_text()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/

@@ -1,6 +1,3 @@
-/*
-START LEMONADE.сonverter_of_a_thousand()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> сonverter_of_a_thousand");
     
@@ -46,6 +43,3 @@ START LEMONADE.сonverter_of_a_thousand()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/

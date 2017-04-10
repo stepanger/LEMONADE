@@ -1,6 +1,3 @@
-/*
-START LEMONADE.convert_format()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> convert_format");
     
@@ -22,12 +19,45 @@ START LEMONADE.convert_format()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/
-/*
-START LEMONADE.transliteration_text()
-*/
+;var LEMONADE = (function (myModel) {
+    console.log("LEMONADE.js ==> decode.js");
+    
+    "use strict";
+    
+   /**
+    * utf8ToB64
+    *
+    * LEMONADE.utf8ToB64("privet") // cHJpdmV0
+    *
+    * Кодирование строки в base-64
+    * @param {str}  String Строка для кодирования
+    * @return [String]
+    */
+    
+    myModel.utf8ToB64 = function(str){
+    
+        return btoa(unescape(encodeURIComponent(str)));
+        
+    };
+    
+   /**
+    * b64ToUtf8
+    *
+    * LEMONADE.b64ToUtf8("cHJpdmV0") // privet
+    *
+    * Декодирование строки в utf8
+    * @param {str}  String Строка для Декодирования
+    * @return [String]
+    */
+    myModel.b64ToUtf8 = function(str){
+        
+        return decodeURIComponent(escape(atob(str)));
+
+    };
+    
+    return myModel;
+    
+}(LEMONADE || {}));
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> transliteration_text");
     
@@ -114,7 +144,7 @@ START LEMONADE.transliteration_text()
         };
     
     /**
-     * транслитерация  
+     * Tранслитерация  
      * Выводит текст в английский транслит
      * @param {string} str, строка в Транслит
      * @return [string]
@@ -132,12 +162,6 @@ START LEMONADE.transliteration_text()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/
-/*
-START LEMONADE.validation_of()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> validation_of");
     
@@ -181,12 +205,6 @@ START LEMONADE.validation_of()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/
-/*
-START LEMONADE.сonverter_of_a_thousand()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> сonverter_of_a_thousand");
     
@@ -232,6 +250,3 @@ START LEMONADE.сonverter_of_a_thousand()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/

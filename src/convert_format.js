@@ -1,6 +1,3 @@
-/*
-START LEMONADE.convert_format()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> convert_format");
     
@@ -22,6 +19,3 @@ START LEMONADE.convert_format()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/

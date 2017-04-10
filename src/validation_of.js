@@ -1,6 +1,3 @@
-/*
-START LEMONADE.validation_of()
-*/
 ;var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> validation_of");
     
@@ -44,6 +41,3 @@ START LEMONADE.validation_of()
     return myModel;
     
 }(LEMONADE || {}));
-/*
-==>END
-*/
