@@ -90,7 +90,7 @@
      * @return [string]
     */
     
-    myModel.transliteration_text = function(str){
+    myModel.transliterationText = function(str){
         
         str = str+"";
         

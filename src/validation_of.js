@@ -14,7 +14,7 @@
      * @return {number} 123
     */
     
-    myModel.validation_of = function (string_of_a_number){
+    myModel.validationOf = function (string_of_a_number){
         
         string_of_a_number = string_of_a_number || "";
         mass_NumberVerification = string_of_a_number.split("");

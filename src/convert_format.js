@@ -11,9 +11,9 @@
      * @return [12222.222, 12222.2, "Display"]
     */
     
-    myModel.convert_format = function(Number, Display){
+    myModel.convertFormat = function(Number, Display){
         
-        return LEMONADE.сonverter_of_a_thousand(Number, Display);
+        return LEMONADE.сonverterOfAThousand(Number, Display);
     }
     
     return myModel;

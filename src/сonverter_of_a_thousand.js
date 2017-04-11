@@ -17,7 +17,7 @@
      * @param {string} Annexe, приставка обезательное (K, M, G )-(строка)
      * @return {arrya} [1000.001, 1000, false/string]
     */
-    myModel.сonverter_of_a_thousand = function (NumberSolve, Annexe){
+    myModel.сonverterOfAThousand = function (NumberSolve, Annexe){
         
         TheNumberOfSettled = NumberSolve;
         NumberSolve        = +NumberSolve || 0;

@@ -11,9 +11,9 @@
      * @return [12222.222, 12222.2, "Display"]
     */
     
-    myModel.convert_format = function(Number, Display){
+    myModel.convertFormat = function(Number, Display){
         
-        return LEMONADE.сonverter_of_a_thousand(Number, Display);
+        return LEMONADE.сonverterOfAThousand(Number, Display);
     }
     
     return myModel;
@@ -150,7 +150,7 @@
      * @return [string]
     */
     
-    myModel.transliteration_text = function(str){
+    myModel.transliterationText = function(str){
         
         str = str+"";
         
@@ -178,7 +178,7 @@
      * @return {number} 123
     */
     
-    myModel.validation_of = function (string_of_a_number){
+    myModel.validationOf = function (string_of_a_number){
         
         string_of_a_number = string_of_a_number || "";
         mass_NumberVerification = string_of_a_number.split("");
@@ -224,7 +224,7 @@
      * @param {string} Annexe, приставка обезательное (K, M, G )-(строка)
      * @return {arrya} [1000.001, 1000, false/string]
     */
-    myModel.сonverter_of_a_thousand = function (NumberSolve, Annexe){
+    myModel.сonverterOfAThousand = function (NumberSolve, Annexe){
         
         TheNumberOfSettled = NumberSolve;
         NumberSolve        = +NumberSolve || 0;
