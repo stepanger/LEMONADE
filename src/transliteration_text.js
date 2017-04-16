@@ -1,20 +1,20 @@
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> transliteration_text");
     
     "use strict";
     
     var regExp = /[\/\|\:\?\*&<>"'\/А-ЯЁа-яё]/g
       , translite = {
-            "'" : '&#39;',
+            "'" : "&#39;",
             '&' : "&amp;",
             '<' : "&lt;",
             '>' : "&gt;",
-            '"' : '&quot;',
-            '/' : '&#x2F;',
-            ':' : '&#133;',
-            '|' : '&#124;', 
-            '?' : '&#063;',
-            '*' : '&#042;',
+            '"' : "&quot;",
+            '/' : "&#x2F;",
+            ':' : "&#133;",
+            '|' : "&#124;", 
+            '?' : "&#063;",
+            '*' : "&#042;",
             "А" : "A",
             "Б" : "B",
             "В" : "V",
@@ -84,13 +84,16 @@
         };
     
     /**
-     * Tранслитерация  
+     * transliterationText - Tранслитерация  
+     *
+     * LEMONADE.transliterationText("Привет");
+     *
      * Выводит текст в английский транслит
      * @param {string} str, строка в Транслит
      * @return [string]
     */
     
-    myModel.transliterationText = function(str){
+    myModel.transliterationText = function (str){
         
         str = str+"";
         

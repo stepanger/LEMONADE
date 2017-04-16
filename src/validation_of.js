@@ -1,4 +1,4 @@
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> validation_of");
     
     "use strict";
@@ -8,31 +8,34 @@
       , bollean_of_a_number;            //boolean для проверки в {every}
     
     /**
-     * Проверка на число (validation_of)
+     * validationOf - Проверка на число
+     *
+     * LEMONADE.validationOf(1234);
+     *
      * Валидация числа на придмет не валидных значений
      * @param {number} string_of_a_number, проверяемое число
      * @return {number} 123
     */
     
-    myModel.validationOf = function (string_of_a_number){
+    myModel.validationOf = function (string_of_a_number) {
         
         string_of_a_number = string_of_a_number || "";
         mass_NumberVerification = string_of_a_number.split("");
         
-        if(!mass_NumberVerification.length){
-            return 0 //false
+        if( !mass_NumberVerification.length ) {
+            return 0; //false
         };
         
-        bollean_of_a_number = mass_NumberVerification.every(function(number){
-            return number >= 0 
+        bollean_of_a_number = mass_NumberVerification.every( function(number) {
+            return number >= 0;
         });
         
-        if(!bollean_of_a_number){
-            return 0 //false
+        if( !bollean_of_a_number ) {
+            return 0; //false
         };
         
-        finished_number = +(mass_NumberVerification.join(''));
-        finished_number = (finished_number <= 143000000000) ? finished_number : 0 
+        finished_number = +(mass_NumberVerification.join(""));
+        finished_number = (finished_number <= 143000000000) ? finished_number : 0;
         
         return finished_number;
         

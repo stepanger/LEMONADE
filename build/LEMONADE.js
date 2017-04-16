@@ -1,4 +1,4 @@
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> convert_format");
     
     "use strict";
@@ -19,7 +19,7 @@
     return myModel;
     
 }(LEMONADE || {}));
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> decode.js");
     
     "use strict";
@@ -34,7 +34,7 @@
     * @return [String]
     */
     
-    myModel.utf8ToB64 = function(str){
+    myModel.utf8ToB64 = function (str){
     
         return btoa(unescape(encodeURIComponent(str)));
         
@@ -49,7 +49,7 @@
     * @param {str}  String Строка для Декодирования
     * @return [String]
     */
-    myModel.b64ToUtf8 = function(str){
+    myModel.b64ToUtf8 = function (str){
         
         return decodeURIComponent(escape(atob(str)));
 
@@ -58,23 +58,134 @@
     return myModel;
     
 }(LEMONADE || {}));
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
+    
+    console.log("LEMONADE ==> storage.js");
+    
+    "use strict";
+    
+    var chromeLocal = chrome.storage.local;
+    
+    
+    /**
+     * setStorage
+     *
+     * LEMONADE.setStorage({"history": ["habr", "google"]}, function(){});
+     *
+     * Заносит значения в chrome.storage.local
+     * @param {obj}  object (ключ: значение) записи
+     * @return [callback]
+    */
+    myModel.setStorage = function(obj, callback){
+        chromeLocal.set(obj, function(err) {
+            if(err){
+                console.info(err);
+                return
+            }
+            
+            if(!callback){
+                return
+            }
+            
+            callback();
+        });
+    };
+    
+    /**
+     * getStorage
+     *
+     * LEMONADE.getStorage("hictory and null", function(page){console.log(page)});
+     *
+     * получает значения из chrome.storage.local
+     * @param {string}  string and null
+     * @param {callback}  function(page)
+     * @return [callback]
+    */    
+    myModel.getStorage = function(string, callback){
+        chromeLocal.get(function(page) {
+                
+            if(string == null){
+                callback(page);   
+            }else{
+                callback(page[string]);
+            }
+            
+        });
+    };
+    
+    /**
+     * clearStorage
+     *
+     * LEMONADE.clearStorage(function(){});
+     *
+     * Удаляет все значения из chrome.storage.local
+     * @param {callback}  function(){}
+     * @return [callback]
+    */
+    myModel.clearStorage = function(callback){
+        
+        if(!callback){
+            chromeLocal.clear();
+            return
+        }
+        chromeLocal.clear(callback);
+    };
+    
+    /**
+     * removeStorage
+     *
+     * LEMONADE.removeStorage("history", function(){})
+     *
+     * Удаляет значениt по ключу из chrome.storage.local
+     * @param {string}  ключ в записи
+     * @param {callback}  function(){}
+     * @return [callback]
+    */
+    myModel.removeStorage = function(key, callback){
+        
+        if(!callback){
+            chromeLocal.remove(key);
+            return
+        }
+        
+        chromeLocal.remove(key, callback);
+    };
+    
+    /**
+     * memoryStorage
+     *
+     * LEMONADE.memoryStorage(function(bytesInUse){console.log(bytesInUse)});
+     *
+     * Получает объем (в байтах), используемый в chrome.storage.local
+     * @param {callback}  function(bytesInUse){}
+     * @return [callback]
+    */
+    myModel.memoryStorage = function(callback){
+        chromeLocal.getBytesInUse(function(bytesInUse){
+            callback(bytesInUse);
+        })
+    };
+    
+    return myModel
+    
+}(LEMONADE || {}));
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> transliteration_text");
     
     "use strict";
     
     var regExp = /[\/\|\:\?\*&<>"'\/А-ЯЁа-яё]/g
       , translite = {
-            "'" : '&#39;',
+            "'" : "&#39;",
             '&' : "&amp;",
             '<' : "&lt;",
             '>' : "&gt;",
-            '"' : '&quot;',
-            '/' : '&#x2F;',
-            ':' : '&#133;',
-            '|' : '&#124;', 
-            '?' : '&#063;',
-            '*' : '&#042;',
+            '"' : "&quot;",
+            '/' : "&#x2F;",
+            ':' : "&#133;",
+            '|' : "&#124;", 
+            '?' : "&#063;",
+            '*' : "&#042;",
             "А" : "A",
             "Б" : "B",
             "В" : "V",
@@ -144,13 +255,16 @@
         };
     
     /**
-     * Tранслитерация  
+     * transliterationText - Tранслитерация  
+     *
+     * LEMONADE.transliterationText("Привет");
+     *
      * Выводит текст в английский транслит
      * @param {string} str, строка в Транслит
      * @return [string]
     */
     
-    myModel.transliterationText = function(str){
+    myModel.transliterationText = function (str){
         
         str = str+"";
         
@@ -162,7 +276,7 @@
     return myModel;
     
 }(LEMONADE || {}));
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> validation_of");
     
     "use strict";
@@ -172,31 +286,34 @@
       , bollean_of_a_number;            //boolean для проверки в {every}
     
     /**
-     * Проверка на число (validation_of)
+     * validationOf - Проверка на число
+     *
+     * LEMONADE.validationOf(1234);
+     *
      * Валидация числа на придмет не валидных значений
      * @param {number} string_of_a_number, проверяемое число
      * @return {number} 123
     */
     
-    myModel.validationOf = function (string_of_a_number){
+    myModel.validationOf = function (string_of_a_number) {
         
         string_of_a_number = string_of_a_number || "";
         mass_NumberVerification = string_of_a_number.split("");
         
-        if(!mass_NumberVerification.length){
-            return 0 //false
+        if( !mass_NumberVerification.length ) {
+            return 0; //false
         };
         
-        bollean_of_a_number = mass_NumberVerification.every(function(number){
-            return number >= 0 
+        bollean_of_a_number = mass_NumberVerification.every( function(number) {
+            return number >= 0;
         });
         
-        if(!bollean_of_a_number){
-            return 0 //false
+        if( !bollean_of_a_number ) {
+            return 0; //false
         };
         
-        finished_number = +(mass_NumberVerification.join(''));
-        finished_number = (finished_number <= 143000000000) ? finished_number : 0 
+        finished_number = +(mass_NumberVerification.join(""));
+        finished_number = (finished_number <= 143000000000) ? finished_number : 0;
         
         return finished_number;
         
@@ -205,7 +322,7 @@
     return myModel;
     
 }(LEMONADE || {}));
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> сonverter_of_a_thousand");
     
     "use strict";
@@ -224,7 +341,7 @@
      * @param {string} Annexe, приставка обезательное (K, M, G )-(строка)
      * @return {arrya} [1000.001, 1000, false/string]
     */
-    myModel.сonverterOfAThousand = function (NumberSolve, Annexe){
+    myModel.сonverterOfAThousand = function (NumberSolve, Annexe) {
         
         TheNumberOfSettled = NumberSolve;
         NumberSolve        = +NumberSolve || 0;

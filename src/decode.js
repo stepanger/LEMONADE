@@ -1,4 +1,4 @@
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> decode.js");
     
     "use strict";
@@ -13,7 +13,7 @@
     * @return [String]
     */
     
-    myModel.utf8ToB64 = function(str){
+    myModel.utf8ToB64 = function (str){
     
         return btoa(unescape(encodeURIComponent(str)));
         
@@ -28,7 +28,7 @@
     * @param {str}  String Строка для Декодирования
     * @return [String]
     */
-    myModel.b64ToUtf8 = function(str){
+    myModel.b64ToUtf8 = function (str){
         
         return decodeURIComponent(escape(atob(str)));
 

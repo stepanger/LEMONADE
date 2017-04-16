@@ -1,4 +1,4 @@
-;var LEMONADE = (function (myModel) {
+var LEMONADE = (function (myModel) {
     console.log("LEMONADE.js ==> convert_format");
     
     "use strict";
