@@ -1,6 +1,10 @@
-QUnit.test( "validation_of", function( assert ) {
-  assert.ok(LEMONADE.validation_of(123) === 123, "выводит число");
-  assert.ok(LEMONADE.validation_of("123") === 123, "Проверка на строку");
-  assert.ok(LEMONADE.validation_of("asd") === 0, "неверное значение");
-  assert.ok(LEMONADE.validation_of() === 0, "неверное значение");
-});
+(function(){
+    
+    console.log(LEMONADE.convertFormat(123, "asd"))
+    console.log(LEMONADE.utf8ToB64("privet"))
+    console.log(LEMONADE.b64ToUtf8("cHJpdmV0"))
+    console.log(LEMONADE.transliterationText("Привет"))
+    console.log(LEMONADE.validationOf("1234"))
+    console.log(LEMONADE.сonverterOfAThousand("2134123", "K"))
+
+}())

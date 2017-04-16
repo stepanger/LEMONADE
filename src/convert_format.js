@@ -1,7 +1,8 @@
 var LEMONADE = (function (myModel) {
-    console.log("LEMONADE.js ==> convert_format");
+    console.log("LEMONADE.js ==> сonverter_of_a_thousand");
     
     "use strict";
+    
     /**
      * Формат числа 
      * Выводит отформатированное число с деление на формат
@@ -11,10 +12,10 @@ var LEMONADE = (function (myModel) {
      * @return [12222.222, 12222.2, "Display"]
     */
     
-    myModel.convertFormat = function(Number, Display){
+    myModel.convertFormat = function (num, dis) {
         
-        return LEMONADE.сonverterOfAThousand(Number, Display);
-    }
+        return LEMONADE.сonverterOfAThousand(num, dis);
+    };
     
     return myModel;
     
