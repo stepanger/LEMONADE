@@ -1,5 +1,3 @@
-# LIMONADE.JS
-
 ## .convert_format(Number, format-(+String))
 ### format
  - **kilo ==> k -  (number/1000)**
